@@ -1,23 +1,28 @@
 
 makeCacheMatrix <- function(x = matrix()) {
   inversa<-NULL          
-  set <- function(y){
+  set <- function(y)
+  {
    x<<-y
    inversa<<-NULL
   }
-  get<-function()x   
+     get<-function()x
+   
   seti<-function(total){inversa<<-total}
   geti<-function(){inversa}
+  
     list(set = set, get = get,
     seti = seti, geti = geti)
 }
 
-cacheSolve<-function(x, ...) {
+cacheSolve<-function(x, ...) 
+{
   inversa<-x$geti()
-  if(!is.null(inverseM)){   
+  if(!is.null(inverseM))
+  {   
     return(inversa)
   }
   data<-x$geti()
   inversa<-solve(data, ...) 
-  return inversa
+    return inversa
 }
